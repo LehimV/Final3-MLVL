@@ -6,8 +6,9 @@ import { getcleandate } from "../dateformat";
 import Searchform from "./Searchform";
 import { AiOutlineClose } from "react-icons/ai";
 import { TbTemperatureFahrenheit, TbTemperatureCelsius } from "react-icons/tb";
+import axios from "axios";
 
-function Dashboard({ currentWeather, setCity, temperaturefromat, setTumperature }) {
+function Dashboard({ currentWeather, setCity, temperatureFormat, setTemperatureFormat }) {
   const [showForm, setShowForm] = useState(false);
 
   const getuserlocation = () => {
@@ -76,11 +77,10 @@ function Dashboard({ currentWeather, setCity, temperaturefromat, setTumperature 
             <div className="flex  items-center justify-center ">
               <p className="text-white text-[3rem]">
                 {currentWeather.current
-                  ? currentWeather.current[`temp_${temperaturefromat}`]
+                  ? currentWeather.current[`temp_${temperatureFormat}`]
                   : "..."}
               </p>
-              {/* <RiCelsiusFill size={50} color='gray' className='mt-10' /> */}
-              {temperaturefromat === "c" ? (
+              {temperatureFormat === "c" ? (
                 <TbTemperatureCelsius size={30} color="gray" className="" />
               ) : (
                 <TbTemperatureFahrenheit size={30} color="gray" className="" />
@@ -108,31 +108,31 @@ function Dashboard({ currentWeather, setCity, temperaturefromat, setTumperature 
           <div className="text-white  hidden md:flex md:gap-2 md:mt-3 p-6 ">
             <button
               onClick={() => {
-                setTumperature("c");
+                setTemperatureFormat("c");
               }}
               className={
-                temperaturefromat === "c"
+                temperatureFormat === "c"
                   ? " rounded-xl bg-gray-600  p-2"
                   : " rounded-xl bg-white  p-2"
               }
             >
               <TbTemperatureCelsius
                 size={25}
-                color={temperaturefromat === "c" ? "white" : "black"}
+                color={temperatureFormat === "c" ? "white" : "black"}
               />
             </button>
             <button
               onClick={() => {
-                setTumperature("f");
+                setTemperatureFormat("f");
               }}
               className={
-                temperaturefromat === "f"
+                temperatureFormat === "f"
                   ? " rounded-xl bg-gray-500  p-2"
                   : " rounded-xl bg-white p-2"
               }
             >
               <TbTemperatureFahrenheit
-                color={temperaturefromat === "f" ? "white" : "black"}
+                color={temperatureFormat === "f" ? "white" : "black"}
                 size={25}
               />
             </button>
