@@ -1,7 +1,7 @@
 import React from "react";
 import { BsWind } from "react-icons/bs";
 
-function Hightlights({ currentWeather }) {
+function Highlights({ currentWeather }) {
   const formatValue = (value) => {
     return value ? value.toString() : "";
   };
@@ -10,7 +10,7 @@ function Hightlights({ currentWeather }) {
     <div className="p-6 bg-[#100E1D] text-white">
       <p className="text-white text-[30px] font-bold">Today's Highlights</p>
 
-      <div className="group sm:flex sm:flex-col gap-4 md:grid md:grid-cols-2 lg:mt-4 lg:gap-6">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 lg:mt-4 lg:gap-6">
         <div className="bg-[#1E213A] px-2 py-4 lg:p-2 flex flex-col gap-4 items-center justify-center mt-4 lg:mt-0 lg:min-h-[120px]">
           <p className="">Wind status</p>
           <p className="text-[36px] font-bold">
@@ -21,7 +21,6 @@ function Hightlights({ currentWeather }) {
             <BsWind />
             <p>{formatValue(currentWeather?.current?.wind_dir)}</p>
           </div>
-          <br />
         </div>
 
         <div className="bg-[#1E213A] px-2 py-4 lg:p-2 flex flex-col gap-4 items-center justify-center mt-4 lg:mt-0 lg:min-h-[120px]">
@@ -50,4 +49,4 @@ function Hightlights({ currentWeather }) {
   );
 }
 
-export default React.memo(Hightlights);
+export default React.memo(Highlights);

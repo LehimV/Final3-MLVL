@@ -3,25 +3,25 @@ import { GrClose } from "react-icons/gr";
 import axios from "axios";
 
 function Searchform({ setCity, setShowForm }) {
-  const API_KEY = "TU_API_KEY"; // Reemplaza "TU_API_KEY" con tu propia API key
+  const API_KEY = process.env.REACT_APP_API_KEY;
 
   const [searchValue, setSearchValue] = useState("");
   const [results, setResults] = useState([]);
   const [warning, setWarning] = useState("");
 
   const searchResult = async () => {
-    const url = `https://api.weatherapi.com/v1/search.json?key=${API_KEY}&q=${searchValue}`;
+    const url = "https://api.weatherapi.com/v1/search.json?key=" + API_KEY + "&q=" + searchValue;
 
     try {
       if (searchValue.trim() === "") {
-        return setWarning("Search input can not be empty");
+        return setWarning("Search input cannot be empty");
       }
       const response = await axios.get(url);
       const data = response.data;
-      setResults(data);
+      setResults(results.concat(data));
       setSearchValue("");
     } catch (error) {
-      console.log("no search");
+      console.log("No search results");
     }
   };
 
@@ -31,10 +31,10 @@ function Searchform({ setCity, setShowForm }) {
   };
 
   return (
-    <div className="h-screen w-full bg-slate-900 ">
+    <div className="h-screen w-full bg-slate-900">
       <div className="flex justify-between items-center gap-2">
         <input
-          className="w-full h-[50px] bg-transparent  p-3 "
+          className="w-full h-[50px] bg-transparent p-3"
           placeholder="Search for location"
           type="text"
           name="place"
@@ -44,7 +44,7 @@ function Searchform({ setCity, setShowForm }) {
             setSearchValue(e.target.value);
           }}
         />
-        <button onClick={searchResult} className=" bg-blue-500 px-4 py-3 ">
+        <button onClick={searchResult} className="bg-blue-500 px-4 py-3">
           Search
         </button>
       </div>
@@ -57,10 +57,10 @@ function Searchform({ setCity, setShowForm }) {
               onClick={() => {
                 handleSelectedLocation(result.url);
               }}
-              className=" cursor-pointer flex  justify-between  bg-slate-500 py-2 px-1"
+              className="cursor-pointer flex justify-between bg-slate-500 py-2 px-1"
             >
-              <p className="">{result.name}</p>
-              <p className="text-gray-400">{result.country}</p>
+              <p>{result.name}</p>
+              <p className="text-gray-400">{result.sys?.country}</p>
             </div>
           );
         })}
