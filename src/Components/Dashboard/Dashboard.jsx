@@ -7,7 +7,14 @@ import Searchform from "./Searchform";
 import { AiOutlineClose } from "react-icons/ai";
 import { TiWeatherCloudy } from "react-icons/ti";
 
-function Dashboard({ currentWeather, setCity, temperatureFormat, setTemperatureFormat, onSearch }) {
+function Dashboard({
+  currentWeather,
+  city,
+  setCity,
+  temperatureFormat,
+  setTemperatureFormat,
+  onSearch,
+}) {
   const [showForm, setShowForm] = useState(false);
 
   const getuserlocation = () => {

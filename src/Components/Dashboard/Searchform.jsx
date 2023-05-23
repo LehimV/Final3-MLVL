@@ -14,7 +14,7 @@ function Searchform({ setCity, setShowForm }) {
 
     try {
       if (searchValue.trim() === "") {
-        return setWarning("Search input cannot be empty");
+        return setWarning("Search cannot be empty");
       }
       const response = await axios.get(url);
       const data = response.data;
@@ -26,6 +26,7 @@ function Searchform({ setCity, setShowForm }) {
   };
 
   const handleSelectedLocation = (x) => {
+    console.log("Selected city:", x);
     setCity(x);
     setShowForm(false);
   };
@@ -55,7 +56,7 @@ function Searchform({ setCity, setShowForm }) {
             <div
               key={index}
               onClick={() => {
-                handleSelectedLocation(result.url);
+                handleSelectedLocation(result.name);
               }}
               className="cursor-pointer flex justify-between bg-slate-500 py-2 px-1"
             >
