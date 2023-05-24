@@ -9,8 +9,11 @@ function App() {
   const [currentWeather, setCurrentWeather] = useState({});
   const [nextdays, setNextdays] = useState([]);
   const [city, setCity] = useState("10001");
+  const [temperatureFormat, setTemperatureFormat] = useState("c");
+
   const currentWeatherURL =
     "https://api.weatherapi.com/v1/current.json?key=" + API_KEY + "&q=" + city;
+
   const forecastURL =
     "https://api.weatherapi.com/v1/forecast.json?key=" + API_KEY + "&q=" + city + "&days=5";
 
@@ -38,7 +41,7 @@ function App() {
 
   useEffect(() => {
     searchLocation();
-  }, [city]); // Actualiza el efecto cuando cambia la ciudad
+  }, [city]); // Actualiza la ciudad
 
   const handleSearch = (event) => {
     if (event.key === "Enter") {
@@ -52,10 +55,10 @@ function App() {
       <div className="flex flex-col lg:flex-row max-h-full">
         <Dashboard
           currentWeather={currentWeather}
-          city={city} // prop city al componente Dashboard
+          city={city} // prop city al Dashboard
           setCity={setCity}
-          temperatureFormat="c"
-          setTemperatureFormat={() => {}}
+          temperatureFormat={temperatureFormat}
+          setTemperatureFormat={setTemperatureFormat}
           onSearch={handleSearch}
         />
         <div className="flex flex-col min-w-[70%] max-h-full bg-[#100E1D]">

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { BsPinMap } from "react-icons/bs";
 import { FaMapMarkerAlt } from "react-icons/fa";
-import { RiCelsiusFill } from "react-icons/ri";
+import { RiCelsiusFill, RiFahrenheitFill } from "react-icons/ri";
 import { getcleandate } from "../dateformat";
 import Searchform from "./Searchform";
 import { AiOutlineClose } from "react-icons/ai";
-import { TiWeatherCloudy } from "react-icons/ti";
-import { GrClose } from "react-icons/gr";
+//import { TiWeatherCloudy } from "react-icons/ti";
+import { TbTemperatureCelsius, TbTemperatureFahrenheit } from "react-icons/tb";
 
 function Dashboard({
   currentWeather,
@@ -55,6 +55,7 @@ function Dashboard({
         </div>
       )}
 
+      {/* clma actual */}
       {!showForm && (
         <div className="w-full flex flex-col justify-center items-center md:mt-2">
           <img
@@ -83,10 +84,11 @@ function Dashboard({
                   ? currentWeather.current[`temp_${temperatureFormat}`]
                   : "..."}
               </p>
+              {/* ICONOS C/F */}
               {temperatureFormat === "c" ? (
-                <RiCelsiusFill size={30} color="gray" className="" />
+                <RiCelsiusFill size={45} color="gray" className="" />
               ) : (
-                <TiWeatherCloudy size={30} color="gray" className="" />
+                <RiFahrenheitFill size={35} color="gray" className="" />
               )}
             </div>
 
@@ -107,6 +109,7 @@ function Dashboard({
             </div>
           </div>
 
+          {/* c of  f   */}
           <div className="text-white hidden md:flex md:gap-2 md:mt-3 p-6">
             <button
               onClick={() => {
@@ -116,7 +119,10 @@ function Dashboard({
                 temperatureFormat === "c" ? "rounded-xl bg-gray-600 p-2" : "rounded-xl bg-white p-2"
               }
             >
-              <RiCelsiusFill size={25} color={temperatureFormat === "c" ? "white" : "black"} />
+              <TbTemperatureCelsius
+                size={25}
+                color={temperatureFormat === "c" ? "white" : "black"}
+              />
             </button>
             <button
               onClick={() => {
@@ -126,7 +132,10 @@ function Dashboard({
                 temperatureFormat === "f" ? "rounded-xl bg-gray-500 p-2" : "rounded-xl bg-white p-2"
               }
             >
-              <TiWeatherCloudy size={25} color={temperatureFormat === "f" ? "white" : "black"} />
+              <TbTemperatureFahrenheit
+                size={25}
+                color={temperatureFormat === "f" ? "white" : "black"}
+              />
             </button>
           </div>
         </div>

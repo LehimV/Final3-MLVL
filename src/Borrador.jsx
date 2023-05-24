@@ -18,21 +18,3 @@ function App() {
       .catch((error) => {
         console.log("There was a problem fetching data:", error);
       });
-
-    axios
-      .get(forecastURL)
-      .then((response) => {
-        setNextdays(response.data.forecast.forecastday);
-        console.log("Next Days:", response.data.forecast.forecastday);
-      })
-      .catch((error) => {
-        console.log("There was a problem fetching data:", error);
-      });
-  };
-
-  useEffect(() => {
-    searchLocation();
-  }, []);
-
-  // Resto del código
-}
