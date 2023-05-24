@@ -1,20 +1,37 @@
-function App() {
-  const API_KEY = process.env.REACT_APP_API_KEY;
-  const [currentWeather, setCurrentWeather] = useState({});
-  const [nextdays, setNextdays] = useState([]);
-  const [city, setCity] = useState("10001");
-  const currentWeatherURL =
-    "https://api.weatherapi.com/v1/current.json?key=" + API_KEY + "&q=" + city;
-  const forecastURL =
-    "https://api.weatherapi.com/v1/forecast.json?key=" + API_KEY + "&q=" + city + "&days=3";
+import React, { useEffect, useState } from "react";
+import { getcleandate } from "../dateformat";
+import { TbTemperatureFahrenheit, TbTemperatureCelsius } from "react-icons/tb";
 
-  const searchLocation = () => {
-    axios
-      .get(currentWeatherURL)
-      .then((response) => {
-        setCurrentWeather(response.data);
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log("There was a problem fetching data:", error);
-      });
+function NextDays({ nextdays, temperatureFormat, setTemperatureFormat }) {
+  return (
+    <div className=" grid grid-cols-2 md:grid-cols-3 gap-6 lg:gap-4 md:flex md:gap-4 px-4 py-12 mt-10 md:mt-0 bg-[#100E1D] text-white lg:p-6 ">
+      {nextdays.map((future, index) => {
+        return (
+          <div
+            key={index}
+            className=" flex flex-col justify-center items-center bg-[#1E213A] p-4  "
+          >
+            <p>{index === 0 ? "Today" : getcleandate(future.date)}</p>
+            <img
+              className="w-[120px]"
+              src={future.day.condition.icon.replace("64x64", "128x128")}
+              alt=""
+            />
+            <div className="flex justify-between items-center gap-6">
+              <div className="flex" gap-2>
+                <p>{future.day[`maxtemp_${temperatureFormat}`]}</p>
+                {temperatureFormat === "c" ? <TbTemperatureCelsius /> : <TbTemperatureFahrenheit />}
+              </div>
+              <div className="flex" gap-2>
+                <p>{future.day[`mintemp_${temperatureFormat}`]}</p>
+                {temperatureFormat === "c" ? <TbTemperatureCelsius /> : <TbTemperatureFahrenheit />}
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+export default NextDays;

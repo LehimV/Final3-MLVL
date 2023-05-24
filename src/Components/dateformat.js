@@ -1,4 +1,4 @@
-export const getcleandate = (x) => {
+/*export const getcleandate = (x) => {
   let date = new Date(x);
   const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const monthsOfYear = [
@@ -21,6 +21,14 @@ export const getcleandate = (x) => {
   const dayOfMonth = date.getDate();
 
   const formattedDate = `${dayOfWeek}, ${dayOfMonth} ${month}`;
+
+  return formattedDate;
+};*/
+
+export const getcleandate = (x) => {
+  const date = new Date(x);
+  const options = { weekday: "short", day: "numeric", month: "short" };
+  const formattedDate = date.toLocaleDateString(undefined, options);
 
   return formattedDate;
 };

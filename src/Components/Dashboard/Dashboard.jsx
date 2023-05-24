@@ -7,6 +7,7 @@ import Searchform from "./Searchform";
 import { AiOutlineClose } from "react-icons/ai";
 //import { TiWeatherCloudy } from "react-icons/ti";
 import { TbTemperatureCelsius, TbTemperatureFahrenheit } from "react-icons/tb";
+import img from "../../images/Cloud-background2.png";
 
 function Dashboard({
   currentWeather,
@@ -60,7 +61,7 @@ function Dashboard({
         <div className="w-full flex flex-col justify-center items-center md:mt-2">
           <img
             className="w-[300px] h-[300px] object-contain invert-[.30] opacity-10 scale-[1.2]"
-            src="./images/Cloud-background.png"
+            src={img}
             alt=""
           />
           <div className="">
