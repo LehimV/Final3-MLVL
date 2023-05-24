@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/Final3-MLVL/static/css/main.86869a64.css",
-    "main.js": "/Final3-MLVL/static/js/main.2f6e7865.js",
+    "main.css": "/Final3-MLVL/static/css/main.8ffbe327.css",
+    "main.js": "/Final3-MLVL/static/js/main.3e81543a.js",
+    "static/media/Cloud-background2.png": "/Final3-MLVL/static/media/Cloud-background2.f88244c26c2492e3c5f1.png",
     "index.html": "/Final3-MLVL/index.html",
-    "main.86869a64.css.map": "/Final3-MLVL/static/css/main.86869a64.css.map",
-    "main.2f6e7865.js.map": "/Final3-MLVL/static/js/main.2f6e7865.js.map"
+    "main.8ffbe327.css.map": "/Final3-MLVL/static/css/main.8ffbe327.css.map",
+    "main.3e81543a.js.map": "/Final3-MLVL/static/js/main.3e81543a.js.map"
   },
   "entrypoints": [
-    "static/css/main.86869a64.css",
-    "static/js/main.2f6e7865.js"
+    "static/css/main.8ffbe327.css",
+    "static/js/main.3e81543a.js"
   ]
 }
