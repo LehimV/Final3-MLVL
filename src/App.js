@@ -9,36 +9,36 @@ function App() {
   const [currentWeather, setCurrentWeather] = useState({});
   const [nextdays, setNextdays] = useState([]);
   const [city, setCity] = useState("10001");
-  const currentWeatherUrl =
+  const currentWeatherURL =
     "https://api.weatherapi.com/v1/current.json?key=" + API_KEY + "&q=" + city;
-  const forecastUrl =
+  const forecastURL =
     "https://api.weatherapi.com/v1/forecast.json?key=" + API_KEY + "&q=" + city + "&days=5";
 
   const searchLocation = () => {
     axios
-      .get(currentWeatherUrl)
+      .get(currentWeatherURL)
       .then((response) => {
         setCurrentWeather(response.data);
         console.log(response.data);
       })
       .catch((error) => {
-        console.log("There was a problem fetching current weather data:", error);
+        console.log("There was a problem fetching data:", error);
       });
 
     axios
-      .get(forecastUrl)
+      .get(forecastURL)
       .then((response) => {
         setNextdays(response.data.forecast.forecastday);
-        console.log(response.data.forecast.forecastday);
+        //console.log("Next Days:", response.data.forecast.forecastday);
       })
       .catch((error) => {
-        console.log("There was a problem fetching forecast data:", error);
+        console.log("There was a problem fetching data:", error);
       });
   };
 
   useEffect(() => {
     searchLocation();
-  }, []);
+  }, [city]); // Actualiza el efecto cuando cambia la ciudad
 
   const handleSearch = (event) => {
     if (event.key === "Enter") {
@@ -52,7 +52,7 @@ function App() {
       <div className="flex flex-col lg:flex-row max-h-full">
         <Dashboard
           currentWeather={currentWeather}
-          city={city}
+          city={city} // prop city al componente Dashboard
           setCity={setCity}
           temperatureFormat="c"
           setTemperatureFormat={() => {}}

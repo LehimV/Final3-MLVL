@@ -6,6 +6,7 @@ import { getcleandate } from "../dateformat";
 import Searchform from "./Searchform";
 import { AiOutlineClose } from "react-icons/ai";
 import { TiWeatherCloudy } from "react-icons/ti";
+import { GrClose } from "react-icons/gr";
 
 function Dashboard({
   currentWeather,

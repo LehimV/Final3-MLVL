@@ -4,6 +4,7 @@ import { TiWeatherSunny } from "react-icons/ti";
 import { FaTemperatureHigh, FaTemperatureLow } from "react-icons/fa";
 
 function NextDays({ nextdays, temperatureformat }) {
+  console.log("Nexts days:", nextdays);
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 gap-6 lg:gap-4 md:flex md:gap-4 px-4 py-12 mt-10 md:mt-0 bg-[#100E1D] text-white lg:p-6">
       {nextdays.map((future, index) => {
