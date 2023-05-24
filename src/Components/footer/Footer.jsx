@@ -7,7 +7,7 @@ function Footer() {
       <a className="text-blue-500 font-bold" href="https://devchallenges.io/">
         devchallenges.io
       </a>
-      <p>Modified by LehimVL</p>
+      <p className="font-bold">Modified by LehimVL - FUNVAL 2023</p>
     </div>
   );
 }

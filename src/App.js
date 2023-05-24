@@ -3,6 +3,7 @@ import axios from "axios";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import Highlights from "./Components/Highlights/Highlights";
 import NextDays from "./Components/NextDays/NextDays";
+import Footer from "./Components/footer/Footer";
 
 function App() {
   const API_KEY = process.env.REACT_APP_API_KEY;
@@ -64,6 +65,7 @@ function App() {
         <div className="flex flex-col min-w-[70%] max-h-full bg-[#100E1D]">
           <NextDays nextdays={nextdays} temperatureFormat="c" />
           <Highlights currentWeather={currentWeather} />
+          <Footer />
         </div>
       </div>
     </div>
