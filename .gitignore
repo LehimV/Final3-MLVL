@@ -22,4 +22,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-/weather-app-master
+/src/weather-app-master
+/src/Borrador.jsx
+

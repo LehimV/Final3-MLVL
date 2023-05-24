@@ -29,7 +29,7 @@ function Highlights({ currentWeather }) {
             {formatValue(currentWeather?.current?.humidity)}{" "}
             <span className="text-[26px] text-gray-200">%</span>
           </p>
-          {/* progress  bar  with css*/}
+          {/* progress  bar  with css */}
           <div className="w-[80%] flex flex-col gap-[1px]">
             <div className="flex justify-between items-center">
               <p>0</p>
