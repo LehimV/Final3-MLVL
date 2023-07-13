@@ -1,4 +1,4 @@
-<h1> Where in the world? </h1>
+<h1> Weather App </h1>
 
 [![My Skills](https://skillicons.dev/icons?i=html,css,js,react,tailwind)](https://skillicons.dev)
 
